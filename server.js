@@ -5,9 +5,15 @@ import cors from "cors"
 import morgan from "morgan"
 import multer from "multer"
 import path from "path"
+import {fileURLToPath} from "url"
 const app = express()
 const upload = multer({dest:'uploads/'})
 connectDB()
+
+//esmodule fix
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 //middlewares
 app.use(cors())
